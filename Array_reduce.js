@@ -33,7 +33,10 @@ const items = [
     { price: 14 },
     { price: 1 },
     { price: 6 },
+ 
 ];
+
+// if you dont provide a starting initial value for currtotal, it picks that based on the datatype, so for objects thats WEIRD!!
 // start currtotal at 0
 // rules for accumulation is given by the func:
 // it says: for each item, take the currtotal and add the item's price to it, and return that
