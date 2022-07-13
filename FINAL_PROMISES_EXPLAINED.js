@@ -13,3 +13,9 @@ p.then(function(resolveArg){
 }).catch(function(rejectArg){
 	..... do stuff with the error msg OR general error
 }).finally(function(){ // do whatever})
+	
+/*
+* and what are promises used for? to promise to do stuff asyncly!. usually for stuff
+* that takes a lot of time or we dunno whether itll happen OK or not
+* 
+*/
