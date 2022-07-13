@@ -1,0 +1,309 @@
+x01 - Course Introduction
+x02 - JavaScript Is Hard
+x03 - Don't Get Discouraged 
+x04 - What Is JavaScript?
+x05 - Download Tools
+x06 - Your First JavaScript App
+x07 - Prettier 
+x08 - First Variable
+x09 - Number Type
+x10 - String Type
+x11 - Boolean Type
+x12 - Null And Undefined Type
+x13 - Variable Comparison
+x14 - Garbage Collection
+x15 - Comments 
+x16 - Normal Functions
+x17 - Passing Functions As Arguments
+
+x18 - Arrow Functions
+x19 - Stack Trace And Call Stack
+x20 - Hoisting
+x21 - Scoping
+x22 - Clo sures        https://pastebin.com/SfgLHJse
+x23 - Const
+x24 - Var
+x25 - Type Coercion 
+x26 - == Vs ===
+x27 - NaN
+
+x28 - Arrays
+x29 - Objects
+x30 - Reference Vs Value
+x31 - Array Methods
+
+x32 - String Template Literals
+x33 - New And This 
+x34 - Async Vs Defer
+
+--
+--
+
+______________________________________________________________
+______________________________________________________________
+x35 - Window
+x36 - Document
+x37 - Id And Class Selectors
+x38 - Query Selectors
+
+_______________________________________________________________
+LEARNING FOR TODAY:
+1) Window is an object representing the whole broswer "window". It in most cases just deals with the current tab we're in. All the objects are part of this
+window, including the document and the console. When we do anything, window. as a prefix is implicit b4 that. Eg: window.console.log(2);
+Also, Array.from() == window.Array.from(), Math.max() == window.Math.max(), because these objects are part of the window object which is the global object too. 
+
+
+2) The document is an object representing our web document. document.documentElement gives us just the HTML portion of the doc. The document contains all our elements,
+etc. and we can interact with them using this object. EG: We can go 
+	const a = document.createElement("div") 
+	a.innerText = "Hello world";
+	document.body.appendChild(a);
+
+3) document.getElementByID(id) gets the element with that id. IDs are supposed to be unique so it only returns one. We can store it in say 'a' and then do
+a.style.color = "red" to set the color for that el. 
+document.getElementsByClassName gets a LIST of els with that class. The type of this list is HTMLCollection. We can convert it to an array using Array.from(els)
+so we can use forEach loops and stuff on it.
+
+4) Query selectors => Use CSS Queries to get elements. document.querySelector("...") takes in a CSS selector and returns the first el matching that.
+document.querySelectorAll("..") returns a NodeList of all the els matcing it. Nodelists have more methods than HTMLCOllections, but still   less than Arrays. They do have a forEach method though.
+
+______________________________________________________________
+______________________________________________________________
+
+
+x39 - Event Listeners
+x40 - Additional Differences Between Arrow And Normal Functions
+x41 - Data Attributes
+_______________________________________________________________
+LEARNING FOR TODAY:
+1) Event Listeners are attached to any elements we query. 
+
+el.addEventLister('event' => (e){ 
+// event handler body // 
+})
+
+here, 'e' is an object representing the event itself. it is the event object and is always passed to the event handler function.
+e.target is the thing that caused the event to happen, in this case that would be 'el'
+if el is an input el, say, then e.target.value would be the text inside the input field.
+event types: clicks, mouse over, mouse enter, focus, blur, resize etc.
+
+e.preventDefault(): every event has an associated default action with it. eg: on a button of type="submit", that action would be to just reload the curr page, since if we
+dont specify a destination for the submit it submits it to the current page. 
+e.preventDefault() prevents this action from happening
+
+
+2)
+'this' represents the current scope. for arrow funcs, since they're being defined globally, (eg: function abcd(name, () => {} ) ), console.log(this) inside the body
+of the arrow function represents the scope they're defined in. Usually that is the window (global scope)
+
+for normal funcs, this represents the scope of the function they're being CALLED from. so, el.addEventListener('click', function(e){ //... /// })
+OR  
+function myeventhandler(){ 
+	console.log(this) 
+}
+el.addEventListener('click', myeventhandler)
+'
+the 'this' that would be logged would be the <EL>. if that el is the button, it'd be that button el. so in a way it'd be like doing e.target. But dont use this, just
+do e.target
+
+3) HTML 5 allows custom data attributes definition. data-*, any attributes that come in this format are custom defined. they're used to store info about that el.
+eg: <button id="my-btn" data-num-clicks="0"> BTN </button>
+
+These can be selected in JS by getting the el thru a query, and then doing
+	el.dataset
+on that el, which gives the whole list of those attributes, with the data- prefix removed and the remaining converted to camelcase, since JS cant have variables with -x-x- like in HTML. 
+individual atributes are accessed and modified using 
+	el.dataset.numClicks += 1; 
+
+can pair with css:
+[data-btn-clicks="1"]{
+    font-size: 2rem; 
+}
+[data-btn-clicks="2"]{
+    font-size: 3rem; 
+}
+[data-btn-clicks="3"]{
+    font-size: 4rem; 
+}
+[data-btn-clicks="4"]{
+    font-size: 5rem; 
+}
+
+
+______________________________________________________________
+______________________________________________________________
+x42 - DOM Traversal
+
+LEARNING FOR TODAY:
+
+1) Select an element thru a query selector, say x
+	x.parentElement gives the parent
+	x.nextElementSibling gives the next sibling
+	x.children gives all its children in a list
+
+	document.querySelector("..") is used to query ".." from the document
+	but, we can do x.querySelector("..") as well.
+GP
+    P1
+        C1
+        C2
+    P2
+        C1
+
+C1 would be ".grand-parent>.parent>.child-1" relative to the document
+but if we query thru p1, then p1.querySelector(".child-1"); 
+
+Just like x.querySelector looks downward/inside relative to x,
+x.closest looks upward/outside relative to x.
+
+x.closest('.parent') fetches p1, but a querySelector with the same arg wont fetch anything cuz there arent any
+.parents inside x
+
+*/
+
+______________________________________________________________
+______________________________________________________________
+x43 - Simple Todo List
+x44 - Modal Introduction
+x45 - Modal Walkthrough 
+______________________________________________________________
+______________________________________________________________
+x46 - If
+x47 - Ternary Operator
+x48 - Switch Statement
+x49 - For Loop
+x50 - While Loop
+x51 - Recursion
+x52 - Short Circuit Evaluation // useful for default values and object member checks nested
+
+
+x53 - Midi Piano  (((NOT FINISHED)))
+x54 - Quiz App Introduction
+x55 - Quiz App Walkthrough
+x56 - Form Validation Introduction
+
+
+x57 - Form Validation Walkthrough 
+
+https://rebuildcivilization.com/async_vs_threads_concurrency_models_compared.html
+https://krondo.com/in-which-we-begin-at-the-beginning/
+"
+The fundamental idea behind the asynchronous model is that an asynchronous program, when faced with a task that would normally block in a synchronous program, will instead execute some other task that can still make progress
+
+So an asynchronous program only “blocks” when no task can make progress and is thus called a non-blocking program
+
+And each switch from one task to another corresponds to the first task either finishing, or coming to a point where it would have to block
+
+BETTER THAN THREADS cuz they gotta coordinate and race conditions and stuff. Async is great when the tasks are
+indepedent. So if lets say a user reqs an image, thats independent from his scrolling, so do that asyncously
+
+A
+...
+B
+
+
+...
+C
+...
+
+vs
+A
+...
+b
+..
+c..
+b
+
+..
+c
+..
+"
+
+-
+
+
+____________________________________________________________
+ASYNCHRONOUS
+______________________________________________________________
+
+Asynchronous code excecutes outside of the normal flow of execution.
+A--- B--- ----C ------ D sync
+	vs
+A ---C ----D
+ B-----
+
+
+A-B-C-d-e-f
+x = event lister  
+x----*click*-|x ends| x runs again-----*click*....
+ 
+______________________________________________________________
+CALLBACKS
+______________________________________________________________
+callback: a func u pass to another func in order to be executed at a later time based on some specific condn (t time passed/ getting data from url/condn etc.)
+
+callbacks nested ====> callback hell
+
+
+______________________________________________________________
+PROMISES
+______________________________________________________________
+to fight callback hell
+
+*current theory: a promise is an object that tells the program "hey ill execute some of this code on the side, if I 
+succeed ill let u know and if i fail ill let u know too"
+
+
+
+// is a promise to do whatever's inside .then() in place of r1 and whatever's inside of .catch() in place of r2
+promise = new Promise( (r1,r2) => {
+	if (xyz) r1()
+	if (abc) r2()
+}) 
+
+promise.then( () => {}). catch( () => {} )
+
+______________________________________________________________
+seems like all these are building up to dealing with async processes like fetching db data or loading some animations
+and stuff
+
+x58 - Callbacks
+x59 - Promises
+
+--
+--
+
+x60 - Async Await
+______________________________________________________________
+NEW PROMISE MENTAl MODEL
+const p = new Promise(function(resolve, reject){
+	if (...) resolve(xyz)
+	else reject(abc)
+})
+
+// p is a promise to run the function we give to the promise. resolve(xyz) means basically that xyz is the return value in case of success, and abc is return value in case of error/fail
+
+// promise p after running runs the function inside .then() in case of SUC and the one inside of .catch() in case of FAIL/ERROR
+// this function gets 1 arg, which is the value that was returned by the promise
+p.then(function(resolveArg){
+	..... do stuff with resolveArg // xyz
+}).catch(function(rejectArg){
+	..... do stuff with the error msg OR general error
+}).finally(function(){ // do whatever})
+
+x61 - Fetch
+
+
+62 - Event Loop
+63 - Event Delegation
+64 - Browser Storage
+65 - Advanced Todo List
+66 - Expand Collapse Introduction
+67 - Expand Collapse Walkthrough
+68 - Google Maps Clone 
+69 - ES6 Modules
+70 - Node Modules
+71 - NPM
+72 - Parcel
+73 - Date Picker
+74 - Shopping Cart 
